@@ -6,7 +6,6 @@ import Dashboard from "../Dashboard";
 import { CssBaseline, CircularProgress } from "@material-ui/core";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import firebase from "../firebase";
-import Settings from "../Common/Settings";
 
 const theme = createMuiTheme();
 
@@ -27,7 +26,6 @@ export default function App() {
           <Switch>
             <Route path="/" exact component={Dashboard} />
             <Route path="/login" component={LogIn} />
-            <Route path="/settings" component={Settings} />
           </Switch>
         </div>
       </Router>

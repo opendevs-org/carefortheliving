@@ -1,19 +1,12 @@
 import React from "react";
 import AppBar from "@material-ui/core/AppBar";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import Typography from "@material-ui/core/Typography";
 import Badge from "@material-ui/core/Badge";
-import clsx from "clsx";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
-import Drawer from "@material-ui/core/Drawer";
-import List from "@material-ui/core/List";
-import Divider from "@material-ui/core/Divider";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { mainListItems } from "./listItems";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -144,14 +137,6 @@ function Navbar(props) {
   const classes = useStyles();
   let history = useHistory();
 
-  const [open, setOpen] = React.useState(false);
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
-
   const [profileBtn, setProfileBtn] = React.useState(null);
   const handleProfileClick = (event) => {
     setProfileBtn(event.currentTarget);
@@ -163,23 +148,8 @@ function Navbar(props) {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar
-        position="absolute"
-        className={clsx(classes.appBar, open && classes.appBarShift)}
-      >
+      <AppBar position="absolute">
         <Toolbar className={classes.toolbar}>
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            className={clsx(
-              classes.menuButton,
-              open && classes.menuButtonHidden
-            )}
-          >
-            <MenuIcon />
-          </IconButton>
           <Typography
             component="h1"
             variant="h6"
@@ -212,37 +182,16 @@ function Navbar(props) {
             onClose={handleProfileClose}
           >
             <MenuItem onClick={handleProfileClose}>Profile</MenuItem>
-            <MenuItem onClick={settings}>Settings</MenuItem>
             <MenuItem onClick={logout}>Logout</MenuItem>
           </Menu>
         </Toolbar>
       </AppBar>
-      <Drawer
-        variant="permanent"
-        classes={{
-          paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
-        }}
-        open={open}
-      >
-        <div className={classes.toolbarIcon}>
-          <IconButton onClick={handleDrawerClose}>
-            <ChevronLeftIcon />
-          </IconButton>
-        </div>
-        <Divider />
-        <List>{mainListItems}</List>
-        <Divider />
-      </Drawer>
     </div>
   );
 
   async function logout() {
     await firebase.logout();
     history.push("/login");
-  }
-
-  function settings() {
-    history.push("/settings");
   }
 }
 

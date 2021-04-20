@@ -48,13 +48,6 @@ class Firebase {
     });
   }
 
-  async getCurrentUsername() {
-    const username = await this.db
-      .doc(`users/${this.auth.currentUser.uid}`)
-      .get();
-    return username.get("name");
-  }
-
   getAuthStatus() {
     if (this.auth.currentUser) {
       return true;
@@ -72,17 +65,8 @@ class Firebase {
     });
   }
 
-  setUserName(name) {
-    if (!this.getAuthStatus()) {
-      return alert("User Not Authorised");
-    }
-    return this.db.doc(`users/${this.auth.currentUser.uid}`).update({
-      name: name,
-    });
-  }
-
-  signInWithGoogle = () => {
-    return this.auth.signInWithPopup(provider);
+  signInWithGoogle = async () => {
+    return await this.auth.signInWithPopup(provider);
   };
 }
 

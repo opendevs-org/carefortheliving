@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Footer from "../Common/Footer";
@@ -13,7 +13,6 @@ import Container from "@material-ui/core/Container";
 import Navbar from "../Common/Navbar";
 import firebase from "../firebase";
 import Typography from "@material-ui/core/Typography";
-import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -70,7 +69,6 @@ const useStyles = makeStyles((theme) => ({
 
 function Dashboard() {
   const classes = useStyles();
-  let history = useHistory();
 
   const cards = ["", "", "", "", "", ""];
   console.log(firebase.getAuthStatus());
