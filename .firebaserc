@@ -1,7 +1,0 @@
-{
-  "projects": {
-    "default": "care-for-the-living-dev",
-    "prod": "care-for-the-living-3b1b2",
-    "dev": "care-for-the-living-dev"
-  }
-}
