@@ -13,7 +13,6 @@ import {
   Security,
   Slideshow,
   CallToAction,
-  Whatshot,
   AccountBox as AccountBoxIcon,
   Dashboard as DashboardIcon,
   ExitToApp as ExitToAppIcon,

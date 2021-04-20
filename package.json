@@ -1,7 +1,7 @@
 {
   "name": "carefortheliving",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@date-io/moment": "1.x",
     "@formatjs/intl-relativetimeformat": "8.x",

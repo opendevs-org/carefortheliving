@@ -56,8 +56,7 @@ const Menu = (props) => {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        height: '100%',
-        /*  direction: isRTL ? 'rtl' : 'ltr' */
+        height: '100%'
       }}
     >
       <Scrollbar style={{ flex: 1 }}>

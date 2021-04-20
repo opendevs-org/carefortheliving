@@ -102,15 +102,10 @@ const LandingPage = () => {
           <div
             ref={(r) => r && setTop(r)}
             style={{
-              height: "100vh",
+              height: "100%",
               width: "100%",
-              backgroundColor: "black",
-              backgroundRepeat: "no-repeat",
-              backgroundAttachment: "fixed",
-              backgroundSize: "cover",
               display: "flex",
-              justifyContent: "center",
-              minHeight: 600,
+              justifyContent: "center"
             }}
           >
             <div

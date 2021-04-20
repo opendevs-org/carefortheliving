@@ -2,7 +2,7 @@ import { defineMessages } from "react-intl";
 
 const messages = defineMessages({
   app_name: "Care for the Living",
-  sign_in: "Sign in",
+  sign_in: "Post Requirement",
   sign_out: "Sign out",
   username: "Username",
   password: "Password",
@@ -16,8 +16,6 @@ const messages = defineMessages({
   green: "Green",
   language: "Language",
   en: "English",
-  de: "German",
-  ru: "Russian",
   menu: "Menu",
   menu_mini_mode: "Mini menu",
   offline: "Offline",

@@ -3,7 +3,7 @@ import AppBar from '@material-ui/core/AppBar'
 
 const Footer = () => {
   return (
-    <React.Fragment>
+    <>
       <AppBar
         position="relative"
         style={{
@@ -20,9 +20,9 @@ const Footer = () => {
         }}
         id="footer-text"
       >
-        {`© ${new Date().getFullYear()} Copyright: yourcompany.com! All Rights Reserved`}
+        {`© ${new Date().getFullYear()} Copyright: open devs. All Rights Reserved`}
       </AppBar>
-    </React.Fragment>
+    </>
   )
 }
 

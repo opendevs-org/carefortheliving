@@ -60,7 +60,6 @@ const Dashboard = () => {
             flexDirection: 'row',
             flexWrap: 'wrap',
             justifyContent: 'center',
-            alignContent: 'stretch',
           }}
         >
           <Card
