@@ -1,20 +1,20 @@
-import * as functions from 'firebase-functions'
-import admin from 'firebase-admin'
+import * as functions from "firebase-functions";
+import admin from "firebase-admin";
 
 export default functions
-  .region('europe-west1')
-  .database.ref('/user_chat_messages/{senderUid}/{receiverUid}/{messageUid}')
+  .region("europe-west1")
+  .database.ref("/user_chat_messages/{senderUid}/{receiverUid}/{messageUid}")
   .onCreate(async (eventSnapshot, context) => {
-    const { timestamp, params } = context
-    const { senderUid, receiverUid, messageUid } = params
+    const { timestamp, params } = context;
+    const { senderUid, receiverUid, messageUid } = params;
 
-    if (context.authType === 'ADMIN') {
-      return null
+    if (context.authType === "ADMIN") {
+      return null;
     }
 
-    const snapValues = eventSnapshot.val()
+    const snapValues = eventSnapshot.val();
     const {
-      message = '',
+      message = "",
       link,
       image,
       location,
@@ -22,41 +22,41 @@ export default functions
       authorUid,
       created,
       authorPhotoUrl,
-    } = snapValues
-    let lastMessage = message
-    const senderRef = admin.database().ref(`/users/${senderUid}`).once('value')
+    } = snapValues;
+    let lastMessage = message;
+    const senderRef = admin.database().ref(`/users/${senderUid}`).once("value");
 
     const senderSnap = await admin
       .database()
       .ref(`/users/${senderUid}`)
-      .once('value')
+      .once("value");
 
     const receiverSnap = await admin
       .database()
       .ref(`/users/${receiverUid}`)
-      .once('value')
+      .once("value");
 
     const {
       displayName: senderName = null,
       photoURL: senderPhoto = null,
-    } = senderSnap.val()
+    } = senderSnap.val();
     const {
       displayName: receiverName = null,
       photoURL: receiverPhoto = null,
-    } = receiverSnap.val()
+    } = receiverSnap.val();
 
     if (!message) {
       if (link) {
-        lastMessage = 'Link'
+        lastMessage = "Link";
       }
       if (image) {
-        lastMessage = 'Photo'
+        lastMessage = "Photo";
       }
       if (location) {
-        lastMessage = 'Position'
+        lastMessage = "Position";
       }
       if (audio) {
-        lastMessage = 'Audio'
+        lastMessage = "Audio";
       }
     }
 
@@ -64,7 +64,7 @@ export default functions
     await admin
       .database()
       .ref(`/user_chat_messages/${receiverUid}/${senderUid}/${messageUid}`)
-      .update(snapValues)
+      .update(snapValues);
 
     // sender chat message
     await admin
@@ -72,7 +72,7 @@ export default functions
       .ref(`/user_chat_messages/${senderUid}/${receiverUid}/${messageUid}`)
       .update({
         isSend: timestamp,
-      })
+      });
 
     // sender chat
     await admin
@@ -87,7 +87,7 @@ export default functions
         lastCreated: created,
         isSend: timestamp,
         isRead: null,
-      })
+      });
 
     // receiver chat
     await admin
@@ -100,18 +100,18 @@ export default functions
         lastMessage: lastMessage,
         lastCreated: created,
         isRead: null,
-      })
+      });
 
     // update unread
     await admin
       .database()
       .ref(`/user_chats/${receiverUid}/${senderUid}/unread`)
       .transaction((number) => {
-        return (number || 0) + 1
-      })
+        return (number || 0) + 1;
+      });
 
     if (authorUid !== receiverUid) {
-      const messages = []
+      const messages = [];
 
       const payload = {
         notification: {
@@ -122,27 +122,27 @@ export default functions
           notification: {
             title: `${snapValues.authorName}`,
             body: lastMessage,
-            icon: authorPhotoUrl ? authorPhotoUrl : '/apple-touch-icon.png',
+            icon: authorPhotoUrl ? authorPhotoUrl : "/apple-touch-icon.png",
             image,
-            click_action: `https://www.react-most-wanted.com/chats/${senderUid}`,
+            click_action: `https://www.carefortheliving.com/chats/${senderUid}`,
           },
         },
         data: {
-          test: 'test',
+          test: "test",
         },
-      }
+      };
 
       const tokensSnap = await admin
         .database()
         .ref(`notification_tokens/${receiverUid}`)
-        .once('value')
+        .once("value");
 
       if (tokensSnap.exists()) {
         tokensSnap.forEach((t) => {
-          messages.push({ token: t.key, ...payload })
-        })
+          messages.push({ token: t.key, ...payload });
+        });
       }
 
-      await admin.messaging().sendAll(messages)
+      await admin.messaging().sendAll(messages);
     }
-  })
+  });

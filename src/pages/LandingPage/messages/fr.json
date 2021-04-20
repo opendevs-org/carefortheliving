@@ -1,6 +1,6 @@
 {
-  "intro": "React Starter-Kit avec toutes les fonctionnalités les plus recherchées",
-  "title": " REACT MOST WANTED ",
+  "intro": "React Starter-Kit",
+  "title": "Care for the Living",
   "start": "COMMENCER",
   "instal": "Installation",
   "run": "Il suffit d'exécuter ce script pour commencer:",
@@ -16,5 +16,5 @@
   "try_it_out": "Essaye le",
   "about": "À propos",
   "team": "Équipe",
-  "about_text": "React Most Wanted n'est qu'une application DEMO. N'essayez pas de trouver quelque chose d'utile à faire avec cette DÉMO. Ici, l'accent est uniquement mis sur le code et sur la façon de créer des applications React à l'aide de Material-UI et Firebase."
+  "about_text": "Care for the Living n'est qu'une application DEMO. N'essayez pas de trouver quelque chose d'utile à faire avec cette DÉMO. Ici, l'accent est uniquement mis sur le code et sur la façon de créer des applications React à l'aide de Material-UI et Firebase."
 }

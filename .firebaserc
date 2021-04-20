@@ -1,7 +1,7 @@
 {
   "projects": {
-    "default": "react-most-wanted-dev",
-    "prod": "react-most-wanted-3b1b2",
-    "dev": "react-most-wanted-dev"
+    "default": "care-for-the-living-dev",
+    "prod": "care-for-the-living-3b1b2",
+    "dev": "care-for-the-living-dev"
   }
 }

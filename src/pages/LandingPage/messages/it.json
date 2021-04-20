@@ -1,7 +1,7 @@
 {
   "signin": "Registrati",
-  "intro": "React Starter-Kit con le features Most Wanted ",
-  "title": " REACT MOST WANTED ",
+  "intro": "React Starter-Kit",
+  "title": "Care for the Living",
   "start": "INIZIA ADESSO",
   "instal": "Installazione",
   "run": "Esegui solo questo script per iniziare:",
@@ -16,6 +16,5 @@
   "try_it_out": "Prova",
   "about": "Informazioni",
   "team": "Squadra",
-  "about_text": "React Most Wanted è solo una domanda DEMO. Non cercare di trovare qualcosa di utile da fare con questa DEMO. Il focus qui è solo sul codice e su come costruire applicazioni di reazione usando Material-UI e Firebase."
-
+  "about_text": "Care for the Living è solo una domanda DEMO. Non cercare di trovare qualcosa di utile da fare con questa DEMO. Il focus qui è solo sul codice e su come costruire applicazioni di reazione usando Material-UI e Firebase."
 }
