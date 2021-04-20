@@ -29,19 +29,6 @@ class Firebase {
     return this.auth.signOut();
   }
 
-  userProfile(firstname, lastname) {
-    let name = firstname.concat(" ", lastname);
-    if (!this.auth.currentUser) {
-      return alert("User Not Authorised!");
-    }
-    return this.db.doc(`users/${this.auth.currentUser.uid}`).set({
-      name: name,
-      email: this.auth.currentUser.email,
-      id: this.auth.currentUser.uid,
-      currency: "₹",
-    });
-  }
-
   isInitialized() {
     return new Promise((resolve) => {
       this.auth.onAuthStateChanged(resolve);
@@ -54,15 +41,6 @@ class Firebase {
     } else {
       return false;
     }
-  }
-
-  setCurrency(currency) {
-    if (!this.getAuthStatus()) {
-      return alert("User Not Authorised");
-    }
-    return this.db.doc(`users/${this.auth.currentUser.uid}`).update({
-      currency: currency,
-    });
   }
 
   signInWithGoogle = async () => {

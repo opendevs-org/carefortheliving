@@ -136,7 +136,7 @@ const useStyles = makeStyles((theme) => ({
 function Navbar(props) {
   const classes = useStyles();
   let history = useHistory();
-
+  console.log(props.isLogged, "alok");
   const [profileBtn, setProfileBtn] = React.useState(null);
   const handleProfileClick = (event) => {
     setProfileBtn(event.currentTarget);
@@ -159,7 +159,7 @@ function Navbar(props) {
           >
             {props.title}
           </Typography>
-          {props.isLogged ? (
+          {!props.isLogged ? (
             <Button
               size="small"
               color="secondary"
@@ -182,6 +182,7 @@ function Navbar(props) {
             onClose={handleProfileClose}
           >
             <MenuItem onClick={handleProfileClose}>Profile</MenuItem>
+            <MenuItem onClick={handleProfileClose}>Create Request</MenuItem>
             <MenuItem onClick={logout}>Logout</MenuItem>
           </Menu>
         </Toolbar>
@@ -191,7 +192,7 @@ function Navbar(props) {
 
   async function logout() {
     await firebase.logout();
-    history.push("/login");
+    window.location.reload(false);
   }
 }
 

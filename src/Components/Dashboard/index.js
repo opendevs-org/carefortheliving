@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Footer from "../Common/Footer";
@@ -85,16 +85,18 @@ function Dashboard() {
   //   history.push("/login");
   //   return null;
   // }
+  const [isLogged, setIsLogged] = useState(false);
+
+  useEffect(() => {
+    setIsLogged(firebase.getAuthStatus());
+    console.log(firebase.getAuthStatus());
+  }, [firebase.getAuthStatus()]);
 
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <p></p>
 
-      <Navbar
-        title="Care for the Living"
-        isLogged={() => firebase.getAuthStatus()}
-      />
+      <Navbar title="Care for the Living" isLogged={isLogged} />
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <div className={classes.heroContent}>
@@ -106,7 +108,7 @@ function Dashboard() {
               color="textPrimary"
               gutterBottom
             >
-              Care for the Living
+              Care for the Living test {isLogged}
             </Typography>
             <Typography
               variant="h6"
