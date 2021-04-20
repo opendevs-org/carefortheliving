@@ -73,18 +73,6 @@ function Dashboard() {
   const cards = ["", "", "", "", "", ""];
   console.log(firebase.getAuthStatus());
 
-  // const [userName, setUserName] = useState("");
-  // useEffect(() => {
-  //   firebase.getCurrentUsername().then((user) => {
-  //     setUserName(user);
-  //   });
-  // }, [userName]);
-
-  // if (!firebase.getAuthStatus()) {
-  //   alert("Please Login First");
-  //   history.push("/login");
-  //   return null;
-  // }
   const [isLogged, setIsLogged] = useState(false);
 
   useEffect(() => {
