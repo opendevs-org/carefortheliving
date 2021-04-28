@@ -1,24 +1,12 @@
-This is a simple boiler plate project for React Dashboard with SignUP, SignIN using Firebase. The routes are maintained in App.js file. To ease the process the project consumes React Functional Components along with Hooks - useState, useEffect.
+## Care For The Living
 
-This project is built using Material UI Library. Utilising following templates:
-1. Dashboard (https://material-ui.com/getting-started/templates/dashboard/)
-2. SignIN (https://material-ui.com/getting-started/templates/dashboard/)
-3. SignUP (https://material-ui.com/getting-started/templates/sign-up/)
+> A webapp where we are trying to connect requestor to donor.
 
-This project utilises different material-ui components like:
-1. Date Picker
-2. Switch
-3. Text Field
-4. Select
-5. Custom Dialog Reusable Modal
-6. Icons
+If you are seeking help, kindly click on Create Request and generate your request. We will do our best to make it visible to the world.
 
-To begin, 
-1. Pull the repo from Github. 
-2. Use "npm install" to install all the node dependencies.
-3. Update src/Components/firebase.js file with your firebase project credentials.
-4. Run "yarn start" or "npm start" to start the project. 
+## Together, we are strong 💪
 
-You will initially be redirected to SignIN page. Select the option "Don't have an account? SignUp" and you will be redirected to SignUP page. Enter credentials and you will be logged into Dashboard. 
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-Video Demo Link: https://youtu.be/aWUr3GRbhhs
+* this project has now been moved and maintained at [carefortheliving](https://github.com/carefortheliving/frontend)
+
